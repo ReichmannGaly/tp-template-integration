@@ -1,5 +1,5 @@
 import "./style.css";
-
+import {Button} from "../../Button";
 export function EmployeeList(props) {
   const { items } = props;
   return (
@@ -19,45 +19,47 @@ export function EmployeeList(props) {
             entries per page
           </label>
         </div>
-        <div className="dataTable-search">
-          <input
-            className="dataTable-input"
-            placeholder="Search..."
-            type="text"
-          />
+        <div className="dataTable-search d-flex">
+          <Button/>
         </div>
       </div>
       <div className="dataTable-container">
         <table className="table-bordered">
           <thead>
             <tr>
+              <th>Id</th>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Adress</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Company</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
+              <th>Id</th>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Adress</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Company</th>
             </tr>
           </tfoot>
           <tbody>
             {(items || []).map((item) => (
-              <tr key={item.name}>
+              <tr key={item.id}>
+                <td>{item.id}</td>
                 <td>{item.name}</td>
-                <td>{item.position}</td>
-                <td>{item.office}</td>
-                <td>{item.age}</td>
-                <td>{item.startDate}</td>
-                <td>{item.salary}</td>
+                <td>{item.username}</td>
+                <td>{item.email}</td>
+                <td>{item.address.street},{item.address.city}</td>
+                <td>{item.phone}</td>
+                <td>{item.website}</td>
+                <td>{item.company.name}</td>
               </tr>
             ))}
           </tbody>
